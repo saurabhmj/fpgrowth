@@ -98,7 +98,11 @@ public void setCount(int count) {
 }
 
 public void setChildren(HashMap<String, FPNode> children) {
-	this.children = children;
+	this.children = new HashMap<>(children);
+}
+
+public String getParentValue(){
+	return this.parent.getValue();
 }
 
 @Override

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
+import dm.project.FPNode;
 
 public class FPTree {
 
@@ -70,7 +71,7 @@ public class FPTree {
 		}
 		
 		listOfNodes.add(childNode);
-		linkedListMap.remove(value);;
+		//linkedListMap.remove(value);;
 		linkedListMap.put(value, listOfNodes);
 	}
 	

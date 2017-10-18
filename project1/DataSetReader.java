@@ -6,8 +6,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class DataSetReader {
 
@@ -97,7 +99,12 @@ public class DataSetReader {
 		
 		List<String> itemsToRemove = new ArrayList<>();
 		//System.out.println("Adding to item to remove");
-		this.mapOfcounts.forEach((k,v) -> {if(v<support) {itemsToRemove.add(k);/*System.out.println("Eliminated " + k + " with count " + v);*/}});
+		//this.mapOfcounts.forEach((k,v) -> {if(v<support) {itemsToRemove.add(k);/*System.out.println("Eliminated " + k + " with count " + v);*/}});
+		
+		for (Entry<String, Integer> entry : mapOfcounts.entrySet()) {
+			if(entry.getValue() < support)
+				itemsToRemove.add(entry.getKey());
+		}
 
 		/*		System.out.println("Removing from map of counts");
 		itemsToRemove.forEach((v) -> this.mapOfcounts.remove(v));
